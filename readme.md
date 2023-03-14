@@ -8,7 +8,7 @@ Create a .env file on ./src/pages directory following the .env.sample file.
 # About it:
 This is suposed to be a forum reddit based. It's get basic features as create a profile, communities, posts and comments.
 The name and color palett have been choosen afte one of my favourites fantasy literary saga (The Kingkiller Chronicle) and his main character.
-[API](https://github.com/FueledByRage/Waystone-Inn-API)
+[API](https://github.com/FueledByRage/waystone-inn-backend-typescript)
 
 # Why:
 This project worked as a lab to improve my skills in web development. Here i've practiced and learned things that are base to how i work today.
