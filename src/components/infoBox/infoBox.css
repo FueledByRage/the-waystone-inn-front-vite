@@ -1,0 +1,18 @@
+.communityInfo{
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding: 15px;
+    margin-top: 5%;
+    height: 120px;
+}
+
+.date{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.date span{
+    size: 2px;
+    margin-left: 2px;
+}

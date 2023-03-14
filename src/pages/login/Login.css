@@ -1,0 +1,65 @@
+.form-container{
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 20%;
+    left: 40vw;
+    justify-content: space-between;
+    min-height: 70%;
+    max-width: 350px;
+    flex-direction: column;
+    text-align: center;
+    @media(max-width: 800px) {
+        left: 5vw;
+    }
+}
+
+
+.form-container div.text{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    top: 30%;
+}
+
+.form-container form input{
+    width: 90%;
+    padding: 14px 10px;
+    text-align: left;
+    font-size: 15px;
+    margin: 20px auto;
+    border: none;
+    border-bottom: 2px solid silver;
+}
+
+label{
+    color: #F33850;
+    top: 42%;
+    left: 45px;
+    position: absolute;
+    pointer-events: none;
+    font-size: 15px;
+    transform-origin: 0 0;
+    transition: .5s;
+}
+#label-email{
+    position: absolute;
+    top: 35%;
+    left: 45px;
+}
+
+#label-password{
+    position: absolute;
+    top: 60%;
+    left: 45px;
+}
+
+#email:focus ~ #label-email,
+#email:valid ~ #label-email{
+    transform: translateY(-15px) scale(.6);
+}
+#password:focus ~ #label-password,
+#password:valid ~ #label-password{
+    transform: translateY(-15px) scale(.6);
+}

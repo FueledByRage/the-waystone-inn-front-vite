@@ -1,0 +1,31 @@
+#name{
+    top: 45px;
+}
+
+#user{
+    top: 185px;
+}
+
+#email{
+    top: 115px;
+}
+
+#password{
+    top: 255px;
+}
+
+#confirmPassword{
+    top: 325px;
+}
+
+form input:focus + label, input:not(:placeholder-shown) + label{
+    transform: translateY(-20px) scale(0.6);
+}
+
+form input::placeholder{
+    color: transparent;
+}
+
+.button{
+    align-self: center;
+}
