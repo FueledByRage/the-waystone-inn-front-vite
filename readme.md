@@ -12,7 +12,7 @@ The name and color palett have been choosen afte one of my favourites fantasy li
 
 # Why:
 This project worked as a lab to improve my skills in web development. Here i've practiced and learned things that are base to how i work today.
-This version is actually a migration from a (first version)[https://github.com/FueledByRage/The-Waystone-Inn-Frontend] in CRA to Vite, a more efficient frontend tooling that i used on my first job as frontend.
+This version is actually a migration from a [first version](https://github.com/FueledByRage/The-Waystone-Inn-Frontend) in CRA to Vite, a more efficient frontend tooling that i used on my first job as frontend.
 
 # Observation
 It's UI is quite poor yet since design is not my comfort zone and it's in a early development stage.
