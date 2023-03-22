@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import api from "../../services/api";
 import { FiCalendar } from 'react-icons/fi';
 import { StyledAvatar } from "../../components/UploadAvatar/StyledAvatar";
@@ -9,11 +8,11 @@ import { EditProfile } from "../EditProfile/editProfile";
 import { Created, Profile } from './components';
 import Loading from "../../components/Loading";
 import { getToken } from "../../storage/utils";
-import { Navigate } from "react-router";
 
 export default function ProfilePage(props){
     
-    const { user } = useParams();
+    const urlParams = new URLSearchParams(window.location.search);
+    const user = urlParams.get("user");
     const [ error, setError ] = useState(null);
     const [ data, setData ] = useState(null);
     const [ loading, setLoading ] = useState(true);

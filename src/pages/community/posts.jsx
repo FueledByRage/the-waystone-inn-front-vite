@@ -15,15 +15,14 @@ export default function Posts( props ) {
     const [ loading, setLoading ] = useState(true);
     const [ error, setError ] = useState();
     const [ page, setPage ] = useState(1);
-    const { id } = '5';
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
 
     useEffect(()=>{
         const fetchData = async () =>{
             try {                
-                const response = await api.get(`/posts/${id}/${page}/${props.register}`);
-
-
+                const response = await api.get(`/posts/${id}/${page}/4`);
                 if(response.data) {
                     setData(response.data);
                     setLoading(false);
@@ -53,7 +52,7 @@ export default function Posts( props ) {
                     <PostBox>
                         <LikeBox> <FiThumbsUp /> <span>{post.likes || 0}</span> <div></div> </LikeBox>
 
-                        <StyledLink to={`/post/${post._id}`}><span>{post.title}</span></StyledLink>
+                        <StyledLink href={`/post/?id=${post._id}/`}><span>{post.title}</span></StyledLink>
                         <PostBody className='postBody' >
                             { !post.url ? <p>{post.body}</p> : <img className='postImg' src={post.url}/>}
                         </PostBody>

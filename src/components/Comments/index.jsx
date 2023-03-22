@@ -45,30 +45,30 @@ export default function Comments(props){
     return(
         !data || error ? <h1> { error || 'Loading...'  } </h1> :
         <div>
-                    {
-                        Array.from(data).map(
-                            comment => (
-                                <Comment key={comment._id}>
-                                    <CommentHeader>
-                                        <UserData>
-                                            { comment.authorId.profileURL ? 
-                                            <CommentAvatar src={comment.authorId.profileURL} /> : 
-                                            <FiUser />
-                                            }
-                                            <StyledLink to={`/profile/${comment.authorId.user}`}> 
-                                                <span>{comment.authorId.user}</span> 
-                                            </StyledLink> 
-                                        </UserData>
-                                        {
-                                        comment.authorId.user === getUser() ? 
-                                        <button onClick={() => { handleDelete(comment._id) }} className='button'> 
-                                            <FiTrash /> 
-                                        </button> : <span>{data.authorId.user}</span>
-                                        }
-                                    </CommentHeader>
-                                    <p>{comment.comment}</p>
-                                </Comment>
-                             )
+            {
+                Array.from(data).map(
+                    comment => (
+                        <Comment key={comment._id}>
+                            <CommentHeader>
+                                <UserData>
+                                    { comment.authorId.profileURL ? 
+                                        <CommentAvatar src={comment.authorId.profileURL} /> : 
+                                        <FiUser />
+                                    }
+                                    <StyledLink to={`/profile/${comment.authorId.user}`}> 
+                                        <span>{comment.authorId.user}</span> 
+                                    </StyledLink> 
+                                </UserData>
+                            {
+                                comment.authorId.user === getUser() ? 
+                                    <button onClick={() =>  handleDelete(comment._id) } className='button'> 
+                                        <FiTrash /> 
+                                    </button> : <span>{data.authorId.user}</span>
+                            }
+                            </CommentHeader>
+                                <p>{comment.comment}</p>
+                            </Comment>
+                            )
                         )
                     }
         </div>

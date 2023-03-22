@@ -1,5 +1,4 @@
 import React, { useEffect, useState }from 'react';
-import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import InfoBox from '../../components/infoBox';
 import { Container, Main, Aside, Header, StyledButton, ErrorBox } from './components';
@@ -17,17 +16,18 @@ export default function Community(){
     const [ errorData, setErrorData ] = useState(null)
     const [ data, setData ] = useState({})
     const [ subscribed, setSub] = useState(false)
-    const { id } = useParams()
     const [ loading, setLoading ] = useState(true)
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
     useEffect(()=>{
+        if(!getToken()) window.location.href = '/login/';
         const fetchData = async ()=>{
             try{
                 const response = await api.get(`/community/read/${id}`)
                 .catch((error) =>{
                     throw new Error(error.response.data)
                 });
-
                 if(response.data){
                     setData(response.data);
                     setLoading(false);
@@ -36,11 +36,11 @@ export default function Community(){
                 }
                 throw new Error('Something went wrong.')
             }catch(error){
-                setErrorData(error.message);
+                setErrorData('Error reaching data');
                 setLoading(false);
             }
         }
-        if(getToken()) fetchData();
+        fetchData();
         
         
     }, []);
@@ -59,7 +59,6 @@ export default function Community(){
         }
     }
 
-    if(!getToken()) window.location.href = '/login';
 
     if(loading) return(
         <div className='loading-container' >
@@ -96,6 +95,7 @@ export default function Community(){
                 </Aside>
                 
             </Container> :
+            
             <ErrorBox>
                 <AlertBox><span>{errorData}</span></AlertBox>
             </ErrorBox>

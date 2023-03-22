@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { getToken } from '../../storage/utils';
 import api from '../../services/api';
 import Upload from '../../components/Upload';
@@ -15,7 +14,6 @@ export default function FormPost() {
     const [ body, setBody ] = useState('');
     const [ error, setError ] = useState();
     const { id } = '5'
-    const navigate = useNavigate();
 
 
     async function handleSubmit(e){
@@ -34,7 +32,7 @@ export default function FormPost() {
 
         try {
             const response = await api.post('/post/register', formData).catch((error) =>{ throw error })
-            navigate(`/post/${response.data._id}`);
+            window.location.href = `/post/?id=${response.data._id}`;
         } catch (error) {
             setError(error.response);
         }

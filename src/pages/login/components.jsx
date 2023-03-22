@@ -30,6 +30,7 @@ export const StyledFormLogin = styled.form`
     button{
         align-self: center;
         width: 40%;
+        padding: 15px;
     }
 `;
 

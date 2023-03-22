@@ -25,6 +25,7 @@ export const CommentHeader = styled.div`
         width: 30px;
         height: 30px;
         align-self: center;
+        margin-top: -3px;
     }
 
     span{

@@ -70,7 +70,7 @@ export const CommentsBox = styled.div`
     background-color: whitesmoke;
     width: 40vw;
     min-width: 400px;
-    margin-left: 15vw;
+    margin-left: 14.5vw;
     padding: 10px;
 `;
 
@@ -92,5 +92,6 @@ export const StyledFormComment = styled.form`
         min-width: 120px;
         height: 35px;
         align-self: flex-end;
+        margin-top:5px;
     }
 `;

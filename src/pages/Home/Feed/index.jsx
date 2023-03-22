@@ -46,14 +46,15 @@ export default function Feed(props){
         }
     }
 
+    loading ?? <Loading />
 
     return(
         <ContainerFeed>
             { 
-                !loading ? error ? <AlertBox><span>{ error }</span></AlertBox> : Array.from(posts).map((post, index) => 
+                error ? <AlertBox><span>{ error }</span></AlertBox> : Array.from(posts).map((post, index) => 
                         <PostFeed key={index} >
                             <PostFeedTitle>
-                                <StyledLink  to={`/post/${post._id}`} >{post.title}</StyledLink> 
+                                <StyledLink  href={`/post/?id=${post._id}/`} >{post.title}</StyledLink> 
                             </PostFeedTitle>
 
                             <PostFeedBody className='postBody'>                          
@@ -66,17 +67,17 @@ export default function Feed(props){
                             </PostFeedBody>
 
                             <PostFeedFooter>
-                                <StyledLink to={`/community/${post.communityId?._id}/1`}> {post.communityId?.name}
+                                <StyledLink href={`/community/?id=${post.communityId?._id}`}> {post.communityId?.name}
                                     <PopUp>
                                         <Title>{post.communityId?.name}</Title>
                                         <About>{post.communityId?.description}</About>
                                     </PopUp>
                                 </StyledLink> 
-                                <StyledLink  to={`/profile/${post.authorId?.user}`} >{post.authorId?.user}</StyledLink> 
+                                <StyledLink  href={`/profile/?id=${post.authorId?.user}`} >{post.authorId?.user}</StyledLink> 
                                 
                             </PostFeedFooter>
                         </PostFeed>
-                ) : <Loading />
+                )
             }
             
             <StyledFooter>

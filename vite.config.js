@@ -19,7 +19,9 @@ export default defineConfig({
         main : resolve(root, 'index.html'),
         login : resolve(root, 'login', 'index.html'),
         register: resolve(root, 'register', 'index.html'),
-        community : resolve(root, 'community', 'index.html')
+        community : resolve(root, 'community', 'index.html'),
+        post : resolve(root, 'post', 'index.html'),
+        profile: resolve(root, 'profile', 'index.html')
       }
     }
   },

@@ -1,7 +1,5 @@
 import React, { useEffect, useState }from 'react';
-import { useNavigate } from 'react-router';
 import  InfoBox  from '../../components/infoBox';
-import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import { getUser } from '../../storage/utils';
 import Comments from '../../components/Comments';
@@ -21,9 +19,9 @@ export default function Post(props){
     const [ error, setError ] = useState(null)
     const [ errorSubmit, setErrorSubmit ] = useState(null)
     const [ loading, setLoading ] = useState(true)
-    const { id } = useParams()
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
     const [ comment, setComment ] = useState('')
-    const navigate = useNavigate()
     const [ likesState, setLikes ] = useState({like: false, dislike: false, likes: 0})
     
     
@@ -64,7 +62,6 @@ export default function Post(props){
 
     async function handleDelete(){
        const response = await api.delete(`/post/${id}`).catch((error) =>{ setError(error.message)});
-         navigate(`/community/${response.data.id}/1`);
     }
 
 
@@ -85,9 +82,7 @@ export default function Post(props){
         })
         setLikes({like: false, dislike: true, likes: --data.likes})
     }
-
     return(
-
         <ContainerPost>
             {   
                 error ? <AlertBox><span>{error}</span></AlertBox>  : 
@@ -121,10 +116,10 @@ export default function Post(props){
                         </PostBody>
 
                         <PostFooter>
-                            <StyledLink to={`/community/${data.communityId._id}/1`}> 
+                            <StyledLink href={`/community/?id=${data.communityId._id}&page=1/`}> 
                                 {data.communityId.name} 
                             </StyledLink> 
-                            <StyledLink  to={`/profile/${data.authorId.user}`} > 
+                            <StyledLink href={`/profile/?user=${data.authorId.user}/`} > 
                                 {data.authorId.user} 
                             </StyledLink> 
                         </PostFooter>
@@ -144,7 +139,7 @@ export default function Post(props){
                     <button className="button" type="submit">Comentar</button>  
                 </StyledFormComment>
 
-                {errorSubmit && <AlertBox><span>{errorSubmit}</span></AlertBox>}
+                { errorSubmit && <AlertBox><span>{errorSubmit}</span></AlertBox> }
 
                 <Comments id={id}/> 
             </CommentsBox>

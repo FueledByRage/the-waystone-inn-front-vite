@@ -22,7 +22,6 @@ body {
     color: white;
     outline: none;
     cursor: pointer;
-    padding: 15px 20px;
 }
 .button:disabled{
     background: gray;

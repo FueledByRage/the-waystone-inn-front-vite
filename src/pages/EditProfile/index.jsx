@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, Navigate } from "react-router";
 import Modal from "../../components/modal";
 import UploadAvatar from '../../components/UploadAvatar'
 import api from "../../services/api";
@@ -10,8 +9,7 @@ import './style.css'
 export function EditProfile({ profileURL }){
 
     const [ file, setFile ] = useState();
-    const navigate = useNavigate();
-    const { user } = useParams();
+    const user = urlParams.get("user");
     const [ data, setData ] = useState(null);
     const [ error, setError ] = useState(null);
 

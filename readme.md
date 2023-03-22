@@ -17,7 +17,6 @@ This version is actually a migration from a [first version](https://github.com/F
 # Observation
 It's UI is quite poor yet since design is not my comfort zone and it's in a early development stage.
 
-
 # Screens
 ![Posting](/screens/posting.gif)
 ![Login screen](/screens/login.png)
