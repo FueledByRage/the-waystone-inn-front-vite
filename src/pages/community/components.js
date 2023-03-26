@@ -77,7 +77,7 @@ export const StyledForm = styled.form`
 `
 
 export const PostsContainer = styled.div`
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -107,6 +107,7 @@ export const FooterButtons = styled.div`
     margin-top: 25px;
     min-width: 400px;
     button{
-        max-width: 100px;
+        min-width: 100px;
+        padding: 10px;
     }
 `;

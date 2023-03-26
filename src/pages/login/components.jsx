@@ -7,7 +7,7 @@ export const ContainerLogin = styled.div`
     align-items: center;
     max-width: 100vw;
     width: 100%;
-
+    
     height: 80vh;
 `;
 
@@ -15,7 +15,7 @@ export const StyledFormLogin = styled.form`
     position: relative;
     width: 25vw;
     height: 70vh;
-    padding: 0px 20px;
+    padding: 2% 20px;
     min-width: 350px;
     border-radius: 20px;
     background: whitesmoke;

@@ -90,7 +90,7 @@ export default function Community(){
                 
                 <Aside>
                     {
-                        !loading && <InfoBox communityId={data.community._id}/>
+                        !loading && <InfoBox name={data.community.name} date={data.community.date} description={data.community.description}/>
                     }
                 </Aside>
                 

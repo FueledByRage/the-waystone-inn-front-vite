@@ -24,7 +24,7 @@ export default function InfoBox(props){
                 console.error(error)
             }
         }
-        fetchData();
+        //fetchData();
     },[]);
 
     function getDate(date){
@@ -35,16 +35,13 @@ export default function InfoBox(props){
     return(
         <CommunityBox>
             {
-                loading ? <h1>
-                    <Loading />
-                </h1> :
             <>
-                <h2>{communityData.name}</h2>
-                <p>{communityData.description}</p>
+                <h2>{props.name}</h2>
+                <p>{props.description}</p>
                 <CommunityBoxDate>
                     <FiCalendar/>
                     <span>Created: </span>
-                    <span>{ getDate(communityData.date)}</span>
+                    <span>{ getDate(props.date)}</span>
                 </CommunityBoxDate>
             
             </>}

@@ -13,7 +13,8 @@ export default function FormPost() {
     const [ title, setTitle ] = useState('');
     const [ body, setBody ] = useState('');
     const [ error, setError ] = useState();
-    const { id } = '5'
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
 
 
     async function handleSubmit(e){
@@ -31,10 +32,12 @@ export default function FormPost() {
         if(!token) return setError("You must be logged to post something!");
 
         try {
-            const response = await api.post('/post/register', formData).catch((error) =>{ throw error })
-            window.location.href = `/post/?id=${response.data._id}`;
+            const response = await api.post('/post/register', formData)
+            .catch((error) =>{ throw error });
+            if(response.data) window.location.href = `/post/?id=${response.data._id}`;
+            else throw new Error('Error saving post');
         } catch (error) {
-            setError(error.response);
+            setError(error.message);
         }
     }
 

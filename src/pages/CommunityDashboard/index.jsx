@@ -9,14 +9,15 @@ export default function CommunityDashboard(){
     const [ error, setError] = useState(null);
     
     useEffect(()=>{
+        if(!getToken()) window.location.href ='/login'
         const fetchData = async () =>{
             const response = await api.get(`/communities`).catch( e => setError(e.data))
 
             setData(response.data);
         }
+        fetchData();
     },[]);
 
-    if(!getToken()) window.location.href ='/login'
 
 
     return(

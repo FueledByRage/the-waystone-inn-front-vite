@@ -4,7 +4,7 @@ import { FiCalendar } from 'react-icons/fi';
 import { StyledAvatar } from "../../components/UploadAvatar/StyledAvatar";
 import { AlertBox } from "../../components/Alert";
 import Modal from "../../components/modal";
-import { EditProfile } from "../EditProfile/editProfile";
+import { EditProfile } from "../EditProfile/index";
 import { Created, Profile } from './components';
 import Loading from "../../components/Loading";
 import { getToken } from "../../storage/utils";

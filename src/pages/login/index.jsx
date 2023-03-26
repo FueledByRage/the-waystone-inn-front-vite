@@ -22,7 +22,9 @@ export default function Login(){
 
         try{
             setLoading(true);
-            const response = await api.post('/user/login', {email, password})
+            const response = await api.post('/user/login', {email, password}).catch( error => {
+                throw error
+            });
 
             const { username, token } = response.data
             
@@ -30,7 +32,8 @@ export default function Login(){
 
             window.location.href = '/'
         }catch(error){
-            setError(error.response.data || error.message)
+            if(error.response) setError(error.response.data)
+            else setError(error.message)
             setLoading(false)
         }
     }
@@ -42,6 +45,7 @@ export default function Login(){
                 <img src={logo}/>
                 <StyledInputLogin 
                     id="email"
+                    data-testid="email"
                     type="text"
                     name="email"
                     value={email}
@@ -52,6 +56,7 @@ export default function Login(){
                 <StyledInputLogin 
                     id="password"
                     name="password"
+                    data-testid="password"
                     type="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
@@ -64,7 +69,7 @@ export default function Login(){
                 
                 <StyledLink href='/register/' >Register</StyledLink>
                 <div></div>
-                {error && <><small style={{ color: 'red' }}>{ error }</small><br /></>}
+                {error && <><small data-testid="error" id="error" style={{ color: 'red' }}>{ error }</small><br /></>}
             </StyledFormLogin>
 
         </ContainerLogin>

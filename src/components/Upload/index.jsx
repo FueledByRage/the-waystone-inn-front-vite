@@ -9,7 +9,6 @@ export default function Upload(props){
     
     const renderDragMessage = (isDragActive, isDragReject) => {
         if(!isDragActive) return <UploadMessage> Drag and drop the image here  </UploadMessage>
-    
         if(isDragReject) return <UploadMessage type = "error" > Not supported file </UploadMessage>
     
         return <UploadMessage type= 'success' > Drop here </UploadMessage>
